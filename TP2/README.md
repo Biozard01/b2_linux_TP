@@ -10,10 +10,4 @@
 
 [Vagrantfile](./PART_2/Vagrantfile)
 
-- Script .sh :
-
-```bash
-#!/bin/bash
-
-yum install vim -y
-```
+### III. Multi-node deployment

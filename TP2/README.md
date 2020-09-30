@@ -14,8 +14,14 @@
 
 [Script](./PART_2/script.sh)
 
-### III. Multi-node deployment
+## III. Multi-node deployment
 
 [Vagrantfile](./PART_3/Vagrantfile)
 
 [Script](./PART_3/script.sh)
+
+## IV. Automation here we (slowly) come
+
+[Vagrantfile](./PART_4/Vagrantfile)
+
+[Script](./PART_4/script.sh)

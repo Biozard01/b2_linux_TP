@@ -45,7 +45,7 @@
   - déterminer le path de l'unité nginx.service
 
     ```bash
-    [vagrant@tp3 ~]$ sudo systemctl cat nginx.service
+    [vagrant@tp3 ~]$ systemctl cat nginx.service
     # /usr/lib/systemd/system/nginx.service
     ```
 
@@ -74,13 +74,13 @@
     Type=forking
     ```
 
-    Configure le type du process au démarrage pour se service.
+    Configure le type du process au démarrage pour ce service.
 
     ```bash
     ExecReload=/bin/kill -s HUP $MAINPID
     ```
 
-    Commandes à executer pour enclenché un reload de la config du service
+    Commandes à executer pour enclencher un reload de la config du service
 
     ```bash
     Description=The nginx HTTP and reverse proxy server
@@ -101,3 +101,5 @@
 ```
 
 ## 3. Création d'un service
+
+### A. Serveur web

@@ -14,3 +14,13 @@ yum install epel-release -y
 yum install nginx -y
 yum install tree -y
 yum install python3 -y
+
+# user web
+useradd web -M -s /sbin/nologin
+usermod -aG web wheels
+
+# user backup
+useradd backup -M -s /sbin/nologin
+
+systemctl enable WebServer.service
+systemctl start WebServer.service

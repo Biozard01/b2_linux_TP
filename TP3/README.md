@@ -212,3 +212,5 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/WebServer.servi
 ```
 
 ### B. Sauvegarde
+
+- Créez une unité de service qui déclenche une sauvegarde avec votre script

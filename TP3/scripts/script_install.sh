@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # LAFOREST Arthur
-# 05/10/2020
+# 07/10/2020
 # script d'install
 
 yum update -y

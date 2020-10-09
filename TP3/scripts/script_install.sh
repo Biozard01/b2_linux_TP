@@ -25,5 +25,7 @@ useradd backup -M -s /sbin/nologin
 mv /tmp/WebServer.service /etc/systemd/system/WebServer.service
 mv /tmp/backup.service /etc/systemd/system/backup.service
 
+mkdir /home/backup/backupDir
+
 systemctl enable WebServer.service
 systemctl start WebServer.service

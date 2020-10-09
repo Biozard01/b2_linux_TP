@@ -15,11 +15,11 @@ Vagrant.configure("2")do|config|
   source: "systemd/units/backup.service", 
   destination: "/tmp/backup.service"
 
-  config.vm.provision "file", source: "scripts/pre_backup.sh", destination: "/tmp/pre_backup.sh"
-  config.vm.provision "file", source: "scripts/backup.sh", destination: "/tmp/backup.sh"
-  config.vm.provision "file", source: "scripts/backup_post.sh", destination: "/tmp/backup_post.sh"
-
   config.vm.provision "shell", path: "scripts/script_install.sh"
+
+  config.vm.provision "file", source: "scripts/pre_backup.sh", destination: "/home/backup/backupDir/pre_backup.sh"
+  config.vm.provision "file", source: "scripts/backup.sh", destination: "/home/backup/backupDir/backup.sh"
+  config.vm.provision "file", source: "scripts/backup_post.sh", destination: "/home/backup/backupDir/backup_post.sh"
 
 config.vm.define :tp3 do |t|
 end

@@ -214,3 +214,112 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/WebServer.servi
 ### B. Sauvegarde
 
 - Créez une unité de service qui déclenche une sauvegarde avec votre script
+
+## II. Autres fonctionnalités
+
+### 1. Gestion de boot
+
+```bash
+[vagrant@tp3]$ bash systemd-analyze plot > plot.svg
+```
+
+Après analyse du fichier plot.svg, les 3 services les plus lents à démarrer sont :
+
+```bash
+web.service
+firewalld.service
+swapfile.swap
+```
+
+### 2. Gestion de l'heure
+
+```bash
+[vagrant@tp3 ~]$ timedatectl
+      Local time: Fri 2020-10-09 14:23:20 UTC
+  Universal time: Fri 2020-10-09 14:23:20 UTC
+        RTC time: Fri 2020-10-09 14:23:18
+       Time zone: UTC (UTC, +0000)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a
+```
+
+On est synchro sur un serveur NTP.
+
+Le fuseau horraire est : Time zone: UTC (UTC, +0000).
+
+On liste tout les fuseaux horaire disponible :
+
+```bash
+[vagrant@tp3]$ timedatectl list-timezones
+Africa/Abidjan
+Africa/Accra
+Africa/Addis_Ababa
+[...]
+```
+
+On passe en fuseaux horaire America/Chicago
+
+```bash
+[vagrant@tp3]$ timedatectl set-timezone America/Chicago
+```
+
+On vérifie :
+
+```bash
+[vagrant@tp3 ~]$ timedatectl
+      Local time: Fri 2020-10-09 09:22:22 CDT
+  Universal time: Fri 2020-10-09 14:22:22 UTC
+        RTC time: Fri 2020-10-09 14:22:20
+       Time zone: America/Chicago (CDT, -0500)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: yes
+ Last DST change: DST began at
+                  Sun 2020-03-08 01:59:59 CST
+                  Sun 2020-03-08 03:00:00 CDT
+ Next DST change: DST ends (the clock jumps one hour backwards) at
+                  Sun 2020-11-01 01:59:59 CDT
+                  Sun 2020-11-01 01:00:00 CST
+[vagrant@tp3 ~]$
+```
+
+### 3. Gestion des noms et de la résolution de noms
+
+```bash
+[vagrant@tp3 ~]$ hostnamectl
+   Static hostname: tp3.b2
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: db7364ba82b62048b232781666245864
+           Boot ID: 645067b908384d019fde0961889e28f4
+    Virtualization: kvm
+  Operating System: CentOS Linux 7 (Core)
+       CPE OS Name: cpe:/o:centos:centos:7
+            Kernel: Linux 3.10.0-1127.19.1.el7.x86_64
+      Architecture: x86-64
+[vagrant@tp3 ~]$
+```
+
+Mon hostname est tp3.b2
+
+On peut le changer dans notre Vagrantfile ou avec la commande : `sudo hostnamectl set-hostname`
+
+On a donc :
+
+```bash
+[vagrant@tp3 ~]$ hostnamectl
+   Static hostname: hello.tp3.b2
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: db7364ba82b62048b232781666245864
+           Boot ID: 645067b908384d019fde0961889e28f4
+    Virtualization: kvm
+  Operating System: CentOS Linux 7 (Core)
+       CPE OS Name: cpe:/o:centos:centos:7
+            Kernel: Linux 3.10.0-1127.19.1.el7.x86_64
+      Architecture: x86-64
+[vagrant@tp3 ~]$
+```

@@ -16,7 +16,7 @@ backup_dir="/opt/backup"
 
 backup_path="${backup_dir}/${backup_name}.tar.gz"
 
-backup_useruid="1003"
+backup_useruid="1002"
 max_backup_number=7
 
 # Fonction qui crée la backup

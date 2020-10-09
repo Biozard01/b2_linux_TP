@@ -3,13 +3,15 @@ Description = service pour backup
 After = network.target
 
 [Service]
-Type=simple
-Environment="SITE=localhost:1025"
-PIDFile=/run/nginx.pid
+Type=oneshot
+Environment="SCRIPT_PRE=/home/backup/pre_backup.sh"
+Environment="SCRIPT=/home/backup/backup.sh"
+Environment="SCRIPT_POST=/home/backup/backup_post.sh"
+PIDFile=/var/run/backupDir/pid
 User=backup
-ExecStartPre=/tmp/pre_backup.sh ${SITE}
-ExecStart=/tmp/backup.sh ${SITE}
-ExecStartPost=/tmp/backup_post.sh ${SITE}
+ExecStartPre=/usr/bin/sh ${SCRIPT_PRE}
+ExecStart=/usr/bin/sh ${SCRIPT}
+ExecStartPost=/usr/bin/sh ${SCRIPT_POST}
 ExecReload=/bin/kill -s HUP $MAINPID
 
 [Install]

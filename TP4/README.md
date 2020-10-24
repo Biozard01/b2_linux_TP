@@ -14,7 +14,3 @@
 | `node2.tp4.b2` | 192.168.2.42 | MariaDB     |
 | `node3.tp4.b2` | 192.168.2.43 | NGINX       |
 | `node4.tp4.b2` | 192.168.2.44 | Serveur NFS |
-
-### 5. Sauvegarde
-
-### 6. Monitoring

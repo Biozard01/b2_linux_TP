@@ -4,6 +4,12 @@
 # 13/10/2020
 # script setup gitea
 
+systemctl enable firewalld
+systemctl start firewalld
+
+firewall-cmd --add-port=3000/tcp --permanent
+firewall-cmd --reload
+
 wget -O gitea https://dl.gitea.io/gitea/1.12.5/gitea-1.12.5-linux-amd64
 chmod +x gitea
 

@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
     node1.vm.hostname = "node1.tp4.b2"
   
     node1.vm.provider "virtualbox" do |v|
-      v.memory = 1024
+      v.memory = 720
       v.name = "node1.tp4.b2"
 
       node1.vm.provision "shell", path: "scripts/node1_conf.sh"
@@ -33,8 +33,10 @@ Vagrant.configure("2") do |config|
     node2.vm.hostname = "node2.tp4.b2"
   
     node2.vm.provider "virtualbox" do |v|
-      v.memory = 1024
+      v.memory = 720
       v.name = "node2.tp4.b2"
+
+      node2.vm.provision "shell", path: "scripts/node2_conf.sh"
 
     end
 
@@ -46,7 +48,7 @@ Vagrant.configure("2") do |config|
     node3.vm.hostname = "node3.tp4.b2"
     
     node3.vm.provider "virtualbox" do |v|
-      v.memory = 1024
+      v.memory = 720
       v.name = "node3.tp4.b2"
 
       node3.vm.provision "shell", path: "scripts/node3_conf.sh"
@@ -66,7 +68,7 @@ Vagrant.configure("2") do |config|
     node4.vm.hostname = "node4.tp4.b2"
   
     node4.vm.provider "virtualbox" do |v|
-      v.memory = 1024
+      v.memory = 720
       v.name = "node4.tp4.b2"
   
     end
